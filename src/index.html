@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Point Barber Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#cc0000',
+                            blue: '#003399',
+                            dark: '#1a1a1a',
+                            light: '#f4f4f4',
+                            yellow: '#f5b041'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Oswald', 'sans-serif'],
+                        body: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #1a1a1a;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Oswald', sans-serif;
+        }
+        .barber-pole-border {
+            border-bottom: 8px solid;
+            border-image: repeating-linear-gradient(
+                45deg,
+                #cc0000,
+                #cc0000 10px,
+                #ffffff 10px,
+                #ffffff 20px,
+                #003399 20px,
+                #003399 30px,
+                #ffffff 30px,
+                #ffffff 40px
+            ) 1;
+        }
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="bg-brand-dark text-white fixed w-full z-50 barber-pole-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                     <a href="#" class="flex-shrink-0 flex items-center py-2">
+                        <img src="/Users/mrvishwakarma/Documents/websites/one_point_barber_shop/images/horizontal.png" alt="On Point Barber Shop Logo" class="h-16 sm:h-20 w-auto object-contain">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" data-i18n="nav_services" class="hover:text-brand-yellow transition duration-300 font-heading text-lg">Services</a>
+                    <a href="#gallery" data-i18n="nav_gallery" class="hover:text-brand-yellow transition duration-300 font-heading text-lg">Gallery</a>
+                    <a href="#contact" data-i18n="nav_contact" class="hover:text-brand-yellow transition duration-300 font-heading text-lg">Contact</a>
+                    <button id="lang-toggle-desktop" data-i18n="lang_toggle" class="text-gray-300 hover:text-white font-heading font-bold text-lg transition duration-300 px-2 py-1 border border-gray-600 rounded">ESPAÑOL</button>
+                    <a href="tel:646-858-0254" data-i18n="nav_call" class="bg-brand-red hover:bg-red-700 text-white px-6 py-2 rounded-full font-heading font-bold transition duration-300 shadow-lg border-2 border-brand-red">Call Now</a>
+                </div>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="lang-toggle-mobile" data-i18n="lang_toggle" class="text-gray-300 hover:text-white font-heading font-bold text-sm transition duration-300 px-2 py-1 border border-gray-600 rounded">ES</button>
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-yellow focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark pb-4 px-4">
+            <a href="#services" data-i18n="nav_services" class="block py-2 text-lg font-heading hover:text-brand-yellow">Services</a>
+            <a href="#gallery" data-i18n="nav_gallery" class="block py-2 text-lg font-heading hover:text-brand-yellow">Gallery</a>
+            <a href="#contact" data-i18n="nav_contact" class="block py-2 text-lg font-heading hover:text-brand-yellow">Contact</a>
+            <a href="tel:646-858-0254" data-i18n="nav_call" class="block mt-4 bg-brand-red text-center text-white px-4 py-2 rounded-full font-heading font-bold">Call Now</a>
+        </div>
+    </nav>
+
+    <header class="relative pt-20 h-screen flex items-center justify-center bg-brand-dark overflow-hidden">
+        <!-- Background Image Fallback -->
+        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80');"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="mb-8 flex justify-center">
+                <img src="/Users/mrvishwakarma/Documents/websites/one_point_barber_shop/images/horizontal.png" alt="On Point Barber Shop Logo" class="w-80 sm:w-96 md:w-[32rem] lg:w-[40rem] h-auto object-contain drop-shadow-2xl">
+            </div>
+            
+            <h2 data-i18n="hero_title" class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wide">Stay Sharp, Look Fresh</h2>
+            <p data-i18n="hero_desc" class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto">Premium grooming services in the heart of Washington Heights. Walk-ins always welcome.</p>
+             <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" data-i18n="hero_btn_services" class="bg-white text-brand-dark hover:bg-gray-200 px-8 py-4 rounded-full font-heading font-bold text-xl transition duration-300 shadow-lg">View Services</a>
+                <a href="https://maps.google.com/?q=504+W+207+St,+NY,+NY+10034" target="_blank" data-i18n="hero_btn_directions" class="bg-brand-blue hover:bg-blue-800 text-white px-8 py-4 rounded-full font-heading font-bold text-xl transition duration-300 shadow-lg border border-brand-blue">Get Directions</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="py-20 bg-white bg-pattern">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 data-i18n="services_title" class="text-4xl md:text-5xl font-heading font-bold text-brand-dark uppercase mb-4">Our Services</h2>
+                <div class="w-24 h-1 bg-brand-red mx-auto mb-4"></div>
+                <p data-i18n="services_subtitle" class="text-lg text-gray-600 font-medium">Sorry, NO CASH REFUNDS</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Adults Pricing -->
+                <div class="bg-brand-dark text-white rounded-lg shadow-2xl p-8 border-t-8 border-brand-red">
+                    <h3 data-i18n="services_adults" class="text-3xl font-heading font-bold text-brand-yellow mb-6 border-b border-gray-700 pb-2">Adults</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_1" class="text-lg font-medium uppercase">Haircut</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$30.00</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_2" class="text-lg font-medium uppercase">Haircut & Shave</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$35.00</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_3" class="text-lg font-medium uppercase">Shape Up</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$15.00</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_4" class="text-lg font-medium uppercase">Shave & Shape-Up</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$20.00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Children Pricing -->
+                <div class="bg-brand-dark text-white rounded-lg shadow-2xl p-8 border-t-8 border-brand-blue">
+                    <h3 data-i18n="services_children" class="text-3xl font-heading font-bold text-brand-yellow mb-6 border-b border-gray-700 pb-2">Children</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_5" class="text-lg font-medium uppercase">Child Haircut</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$20.00</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-gray-700 pb-2 border-dashed">
+                            <span data-i18n="srv_6" class="text-lg font-medium uppercase">Child Shape-Up</span>
+                            <span class="text-xl font-heading font-bold text-brand-yellow">$15.00</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-12 bg-white rounded-lg p-6 text-center text-brand-dark border-4 border-brand-red transform rotate-2">
+                        <i class="fas fa-scissors text-3xl text-brand-red mb-2"></i>
+                        <h4 data-i18n="walkins_title" class="font-heading font-bold text-xl uppercase mb-2">Walk-ins Welcome</h4>
+                        <p data-i18n="walkins_desc" class="font-medium text-gray-700">Come right in, we'll get you looking sharp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-brand-light border-y-4 border-brand-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 data-i18n="gallery_title" class="text-4xl md:text-5xl font-heading font-bold text-brand-dark uppercase mb-4">The Cuts</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <div class="aspect-square bg-gray-300 rounded-lg overflow-hidden shadow-md relative group">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Haircut Style 1" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-camera text-white text-3xl opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition duration-300"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-gray-300 rounded-lg overflow-hidden shadow-md relative group">
+                    <img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Haircut Style 2" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-camera text-white text-3xl opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition duration-300"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-gray-300 rounded-lg overflow-hidden shadow-md relative group">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Haircut Style 3" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-camera text-white text-3xl opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition duration-300"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-gray-300 rounded-lg overflow-hidden shadow-md relative group">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Haircut Style 4" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-camera text-white text-3xl opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition duration-300"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="https://www.instagram.com/onpointbarbershop207" target="_blank" class="inline-flex items-center gap-2 text-brand-dark hover:text-brand-red font-heading font-bold text-xl transition duration-300">
+                    <i class="fab fa-instagram text-2xl"></i> <span data-i18n="gallery_follow">Follow us @onpointbarbershop207</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-brand-dark text-white relative">
+        <div class="absolute inset-0 opacity-10 bg-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <h2 data-i18n="contact_title" class="text-4xl md:text-5xl font-heading font-bold text-white uppercase mb-4">Find Us</h2>
+                    <div class="w-24 h-1 bg-brand-red mb-8"></div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-gradient-to-br from-brand-red to-red-800 p-3 rounded-full shrink-0 shadow-lg border border-red-500">
+                                <i class="fas fa-map-marker-alt text-xl w-6 text-center text-white"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="contact_location" class="font-heading font-bold text-xl mb-1 text-brand-yellow">Location</h4>
+                                <p class="text-lg">504 W 207 St<br>New York, NY 10034</p>
+                                <a href="https://maps.google.com/?q=504+W+207+St,+NY,+NY+10034" target="_blank" data-i18n="contact_directions" class="inline-block mt-2 text-brand-yellow hover:text-white underline text-sm">Get Directions</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-gradient-to-br from-brand-blue to-blue-900 p-3 rounded-full shrink-0 shadow-lg border border-blue-500">
+                                <i class="fas fa-phone-alt text-xl w-6 text-center text-white"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="contact_phone" class="font-heading font-bold text-xl mb-1 text-brand-yellow">Phone</h4>
+                                <a href="tel:646-858-0254" class="text-2xl font-heading font-bold hover:text-brand-red transition duration-300">646-858-0254</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <div class="mt-6 flex justify-center">
+                                <img src="/Users/mrvishwakarma/Documents/websites/one_point_barber_shop/images/icon.png" alt="Barber Shop Icon" class="h-54 w-auto object-contain">
+                            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-400 py-8 text-center border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-heading text-lg">&copy; <span id="year"></span> <span data-i18n="footer_rights">On Point Barber Shop. All Rights Reserved.</span></p>
+            <p class="text-sm mt-2">504 W 207 St, NY, NY 10034</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for fixed header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- Translation Logic ---
+        const translations = {
+            en: {
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_contact: "Contact",
+                nav_call: "Call Now",
+                lang_toggle: "ESPAÑOL",
+                hero_title: "Stay Sharp, Look Fresh",
+                hero_desc: "Premium grooming services in the heart of Washington Heights. Walk-ins always welcome.",
+                hero_btn_services: "View Services",
+                hero_btn_directions: "Get Directions",
+                services_title: "Our Services",
+                services_subtitle: "Sorry, NO CASH REFUNDS",
+                services_adults: "Adults",
+                services_children: "Children",
+                srv_1: "Haircut",
+                srv_2: "Haircut & Shave",
+                srv_3: "Shape Up",
+                srv_4: "Shave & Shape-Up",
+                srv_5: "Child Haircut",
+                srv_6: "Child Shape-Up",
+                walkins_title: "Walk-ins Welcome",
+                walkins_desc: "Come right in, we'll get you looking sharp.",
+                gallery_title: "The Cuts",
+                gallery_follow: "Follow us @onpointbarbershop207",
+                contact_title: "Find Us",
+                contact_location: "Location",
+                contact_directions: "Get Directions",
+                contact_phone: "Phone",
+                footer_rights: "On Point Barber Shop. All Rights Reserved."
+            },
+            es: {
+                nav_services: "Servicios",
+                nav_gallery: "Galería",
+                nav_contact: "Contacto",
+                nav_call: "Llamar Ahora",
+                lang_toggle: "ENGLISH",
+                hero_title: "Mantente Elegante, Luce Fresco",
+                hero_desc: "Servicios de barbería premium en el corazón de Washington Heights. Siempre bienvenidos sin cita.",
+                hero_btn_services: "Ver Servicios",
+                hero_btn_directions: "Obtener Direcciones",
+                services_title: "Nuestros Servicios",
+                services_subtitle: "Lo sentimos, NO HAY DEVOLUCIONES EN EFECTIVO",
+                services_adults: "Adultos",
+                services_children: "Niños",
+                srv_1: "Recorte",
+                srv_2: "Recorte y Afeitado",
+                srv_3: "Cerquillo",
+                srv_4: "Afeitada y Cerquillo",
+                srv_5: "Recorte De Niño",
+                srv_6: "Cerquillo Para Niño",
+                walkins_title: "Bienvenidos Sin Cita",
+                walkins_desc: "Pasa, te dejaremos luciendo elegante.",
+                gallery_title: "Los Cortes",
+                gallery_follow: "Síguenos @onpointbarbershop207",
+                contact_title: "Encuéntranos",
+                contact_location: "Ubicación",
+                contact_directions: "Obtener Direcciones",
+                contact_phone: "Teléfono",
+                footer_rights: "On Point Barber Shop. Todos los derechos reservados."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // Sync mobile and desktop toggle button texts (for ES vs ESPAÑOL abbreviation)
+            if(currentLang === 'es') {
+                document.getElementById('lang-toggle-mobile').textContent = 'EN';
+            } else {
+                document.getElementById('lang-toggle-mobile').textContent = 'ES';
+            }
+        }
+
+        document.getElementById('lang-toggle-desktop').addEventListener('click', toggleLanguage);
+        document.getElementById('lang-toggle-mobile').addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>
